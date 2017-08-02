@@ -1,16 +1,16 @@
 /***********************************************************
-* Copyright (c) 2015,ºþÄÏÅ©Òµ´óÑ§»úÆ÷ÈËÐ¡×é
+* Copyright (c) 2015,æ¹–å—å†œä¸šå¤§å­¦æœºå™¨äººå°ç»„
 * All rights reserved.
 *
-* ÎÄ¼þÃû³Æ£ºIMU.c
-* ÎÄ¼þ±êÊ¶£ºÎÞ
-* Õª    Òª£º
+* æ–‡ä»¶åç§°ï¼šIMU.c
+* æ–‡ä»¶æ ‡è¯†ï¼šæ— 
+* æ‘˜    è¦ï¼š
 *
-* µ±Ç°°æ±¾£º1.0
-* ×÷    Õß: Huws
-* Íê³ÉÈÕÆÚ£º2015Äê11ÔÂ10ÈÕ
+* å½“å‰ç‰ˆæœ¬ï¼š1.0
+* ä½œ    è€…: Huws
+* å®Œæˆæ—¥æœŸï¼š2015å¹´11æœˆ10æ—¥
 *
-* Æ½    Ì¨£ºSTM32_F103    
+* å¹³    å°ï¼šSTM32_F103    
 *************************************************************/
 
 
@@ -19,11 +19,11 @@
 
 
 
-#define RtA       57.324841f   //»¡¶Èµ½½Ç¶È
-#define AtR       0.0174533f   //¶Èµ½»¡¶È
-#define ACC_G     0.0011963f   //¼ÓËÙ¶Èµ½G
-#define Gyro_G    0.0609756f   //½ÇËÙ¶Èµ½¶È   1¶È = 0.0174533 »¡¶È
-#define Gyro_Gr   0.0010642f   //½ÇËÙ¶È±ä»¡¶È
+#define RtA       57.324841f   //å¼§åº¦åˆ°è§’åº¦
+#define AtR       0.0174533f   //åº¦åˆ°å¼§åº¦
+#define ACC_G     0.0011963f   //åŠ é€Ÿåº¦åˆ°G
+#define Gyro_G    0.0609756f   //è§’é€Ÿåº¦åˆ°åº¦   1åº¦ = 0.0174533 å¼§åº¦
+#define Gyro_Gr   0.0010642f   //è§’é€Ÿåº¦å˜å¼§åº¦
 #define FILTER_NUM  20
 
 
@@ -58,7 +58,7 @@ float Num_To_Dps(short int Num)
 }
 
 
-void Prepare_Data(Int16_xyz *acc_in, Int16_xyz *acc_out)  //Êý¾Ý»¬¶¯ÂË²¨£¿
+void Prepare_Data(Int16_xyz *acc_in, Int16_xyz *acc_out)  //çª—å£æ»‘åŠ¨æ»¤æ³¢
 {
     /* Slide Window Filter */
 	static unsigned char Filter_Cnt = 0;
@@ -98,16 +98,16 @@ void Prepare_Data(Int16_xyz *acc_in, Int16_xyz *acc_out)  //Êý¾Ý»¬¶¯ÂË²¨£¿
 #define Ki     0.001f
 #define halfT  0.001f
 
-/* ²ÎÊýÕû¶¨ÕÒ×î¼Ñ  ´ÓÐ¡µ½´óË³Ðò²é */
-/* ÏÈÊÇ±ÈÀýºó»ý·Ö  ×îºóÔÙ°ÑÎ¢·Ö¼Ó */
-/* ÇúÏßÕðµ´ºÜÆµ·±  ±ÈÀý¶ÈÅÌÒª·Å´ó */
-/* ÇúÏßÆ¯¸¡ÈÆ´óÍä  ±ÈÀý¶ÈÅÌÍùÐ¡°â */
-/* ÇúÏßÆ«Àë»Ø¸´Âý  »ý·ÖÊ±¼äÍùÏÂ½µ */
-/* ÇúÏß²¨¶¯ÖÜÆÚ³¤  »ý·ÖÊ±¼äÔÙ¼Ó³¤ */
-/* ÇúÏßÕðµ´ÆµÂÊ¿ì  ÏÈ°ÑÎ¢·Ö½µÏÂÀ´ */
-/* ¶¯²î´óÀ´²¨¶¯Âý  Î¢·ÖÊ±¼äÓ¦¼Ó³¤ */
-/* ÀíÏëÇúÏßÁ½¸ö²¨  Ç°¸ßºóµÍËÄ±ÈÒ» */
-/* Ò»¿´¶þµ÷¶à·ÖÎö  µ÷½ÚÖÊÁ¿²»»áµÍ */
+/* å‚æ•°æ•´å®šæ‰¾æœ€ä½³  ä»Žå°åˆ°å¤§é¡ºåºæŸ¥ */
+/* å…ˆæ˜¯æ¯”ä¾‹åŽç§¯åˆ†  æœ€åŽå†æŠŠå¾®åˆ†åŠ  */
+/* æ›²çº¿éœ‡è¡å¾ˆé¢‘ç¹  æ¯”ä¾‹åº¦ç›˜è¦æ”¾å¤§ */
+/* æ›²çº¿æ¼‚æµ®ç»•å¤§å¼¯  æ¯”ä¾‹åº¦ç›˜å¾€å°æ‰³ */
+/* æ›²çº¿åç¦»å›žå¤æ…¢  ç§¯åˆ†æ—¶é—´å¾€ä¸‹é™ */
+/* æ›²çº¿æ³¢åŠ¨å‘¨æœŸé•¿  ç§¯åˆ†æ—¶é—´å†åŠ é•¿ */
+/* æ›²çº¿éœ‡è¡é¢‘çŽ‡å¿«  å…ˆæŠŠå¾®åˆ†é™ä¸‹æ¥ */
+/* åŠ¨å·®å¤§æ¥æ³¢åŠ¨æ…¢  å¾®åˆ†æ—¶é—´åº”åŠ é•¿ */
+/* ç†æƒ³æ›²çº¿ä¸¤ä¸ªæ³¢  å‰é«˜åŽä½Žå››æ¯”ä¸€ */
+/* ä¸€çœ‹äºŒè°ƒå¤šåˆ†æž  è°ƒèŠ‚è´¨é‡ä¸ä¼šä½Ž */
 
 
 float q0 = 1; 
@@ -119,12 +119,12 @@ float eyInt = 0;
 float ezInt = 0;
 
 
-void IMU_Update(Int16_xyz *Gyr, Int16_xyz *Acc, float_Angle *angle)		//ËÄÔªÊý ½âËã×ËÌ¬
+void IMU_Update(Int16_xyz *Gyr, Int16_xyz *Acc, float_Angle *angle)		//å››å…ƒæ•° è§£ç®—å§¿æ€
 {
 	float ax = Acc->X;
-  float ay = Acc->Y;
-  float az = Acc->Z;
-  float gx = Gyr->X;
+	float ay = Acc->Y;
+	float az = Acc->Z;
+	float gx = Gyr->X;
 	float gy = Gyr->Y;
 	float gz = Gyr->Z;
 	float norm;
@@ -138,26 +138,24 @@ void IMU_Update(Int16_xyz *Gyr, Int16_xyz *Acc, float_Angle *angle)		//ËÄÔªÊý ½â
 	static float Angle_Pit_Sum = 0;
 	static float Angle_Rol_Sum = 0;
 		
-    if(ax*ay*az==0)   
- 	{
-		return;	
-  }			 
+	if(ax*ay*az==0)   
+	{
+	return;	
+	}			 
 		
 	/* degree to Radian */
 	gx *= Gyro_Gr;
 	gy *= Gyro_Gr;
 	gz *= Gyro_Gr;
-	
 		
 	/* Accelerate change to unit vector */
 	norm = sqrt(ax*ax + ay*ay + az*az);
-    
-		
+    	
 	ax = ax / norm;
 	ay = ay / norm;
 	az = az / norm;
 		
-  vx = 2 * (q1*q3 - q0*q2);
+        vx = 2 * (q1*q3 - q0*q2);
 	vy = 2 * (q0*q1 + q2*q3);
 	vz = q0*q0 - q1*q1 - q2*q2 + q3*q3;
 	
@@ -170,7 +168,7 @@ void IMU_Update(Int16_xyz *Gyr, Int16_xyz *Acc, float_Angle *angle)		//ËÄÔªÊý ½â
 	eyInt = eyInt + ey * Ki;
 	ezInt = ezInt + ez * Ki;
 
-  gx = gx + Kp*ex + exInt;
+	gx = gx + Kp*ex + exInt;
 	gy = gy + Kp*ey + eyInt;
 	gz = gz + Kp*ez + ezInt;
 	
@@ -188,7 +186,7 @@ void IMU_Update(Int16_xyz *Gyr, Int16_xyz *Acc, float_Angle *angle)		//ËÄÔªÊý ½â
 		
 	angle->yaw += Gyr->Z*Gyro_G*0.002f;
 	angle->pit = asin(-2* q1*q3 + 2*q0*q2) * 57.3 - AngleOffset_Rol;
-  angle->rol = atan2(2*q2*q3 + 2*q0*q1, -2*q1*q1 - 2*q2*q2 + 1)* 57.3 - AngleOffset_Pit;	
+	angle->rol = atan2(2*q2*q3 + 2*q0*q1, -2*q1*q1 - 2*q2*q2 + 1)* 57.3 - AngleOffset_Pit;	
     
 	if(AngleOffset_FLAG)
     {
